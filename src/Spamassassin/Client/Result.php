@@ -3,10 +3,10 @@
 namespace Spamassassin\Client;
 
 /**
- * Represents the result from an API call on the SpamAssassin server
+ * Represents the result from an API call on the SpamAssassin server.
  *
  * @category SpamAssassin 
- * @package  SpamAssassin_Client
+ *
  * @author   Pedro Padron <ppadron@w3p.com.br>
  * @license  http://www.apache.org/licenses/LICENSE-2.0.html Apache License 2.0
  */
@@ -27,21 +27,21 @@ class Result
     public $responseMessage;
 
     /**
-     * Response content length
+     * Response content length.
      * 
      * @var int
      */
     public $contentLength;
 
     /**
-     * SpamAssassin score
+     * SpamAssassin score.
      * 
      * @var float
      */
     public $score;
 
     /**
-     * How many points the message must score to be considered spam
+     * How many points the message must score to be considered spam.
      * 
      * @var float
      */
@@ -50,15 +50,14 @@ class Result
     /**
      * Is it spam or not?
      * 
-     * @var boolean
+     * @var bool
      */
     public $isSpam;
 
     /**
-     * Raw output from SpamAssassin server
+     * Raw output from SpamAssassin server.
      * 
      * @var string
      */
     public $output;
-
 }

@@ -9,5 +9,4 @@ class SymbolsTest extends BaseTestCase
         $result = $this->sa->symbols($this->gtube);
         $this->assertEquals(true, in_array('GTUBE', $result));
     }
-
 }
