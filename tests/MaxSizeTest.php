@@ -12,7 +12,7 @@ class MaxSizeTest extends BaseTestCase
 
         // setting max size as 10 bytes less than message size
         $params['maxSize'] = strlen($this->gtube) - 10;
-        
+
         $sa = new SpamAssassin_Client($params);
 
         $result = $sa->process($this->gtube);

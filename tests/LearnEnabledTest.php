@@ -4,36 +4,33 @@ require_once 'BaseTestCase.php';
 
 class LearnEnabledTest extends BaseTestCase
 {
-
     public function setUp()
     {
         if (!isset($GLOBALS['PHPUNIT_SA_LEARN_ENABLED'])
             || $GLOBALS['PHPUNIT_SA_LEARN_ENABLED'] == 0) {
-
             $this->markTestSkipped(
-                'To test the learning behavior, enable the TELL ' . 
+                'To test the learning behavior, enable the TELL '.
                 'command in SpamAssassin and update phpunit.xml'
             );
         }
 
         /* @see phpunit.xml */
-        if (!empty($GLOBALS["PHPUNIT_SA_SOCKET"])) {
-            $params = array(
-                "socketPath" => $GLOBALS["PHPUNIT_SA_SOCKET"],
-                "user"       => $GLOBALS["PHPUNIT_SA_USER"],
-            );
+        if (!empty($GLOBALS['PHPUNIT_SA_SOCKET'])) {
+            $params = [
+                'socketPath' => $GLOBALS['PHPUNIT_SA_SOCKET'],
+                'user'       => $GLOBALS['PHPUNIT_SA_USER'],
+            ];
         } else {
-            $params = array(
-                "hostname" => $GLOBALS["PHPUNIT_SA_HOST"],
-                "port"     => (int) $GLOBALS["PHPUNIT_SA_PORT"],
-                "user"     => $GLOBALS["PHPUNIT_SA_USER"]
-            );
+            $params = [
+                'hostname' => $GLOBALS['PHPUNIT_SA_HOST'],
+                'port'     => (int) $GLOBALS['PHPUNIT_SA_PORT'],
+                'user'     => $GLOBALS['PHPUNIT_SA_USER'],
+            ];
         }
 
-        $params["protocolVersion"] = $GLOBALS["PHPUNIT_SA_PROTOCOL_VERSION"];
+        $params['protocolVersion'] = $GLOBALS['PHPUNIT_SA_PROTOCOL_VERSION'];
 
-        $this->sa    = new SpamAssassin_Client($params);
-
+        $this->sa = new SpamAssassin_Client($params);
     }
 
     public function testShouldLearnAndMessageAsSpam()
@@ -65,5 +62,4 @@ class LearnEnabledTest extends BaseTestCase
         /* cleanup (forget message) */
         $this->assertTrue($this->sa->learn($message, SpamAssassin_Client::LEARN_FORGET));
     }
-
 }

@@ -9,9 +9,9 @@ class ZlibCompressionTest extends BaseTestCase
         $params = $this->params;
         $params['enableZlib'] = true;
 
-        $sa     = new SpamAssassin_Client($params);
+        $sa = new SpamAssassin_Client($params);
         $result = $sa->process($this->gtube);
-        
+
         $this->assertTrue($result->isSpam);
     }
 }

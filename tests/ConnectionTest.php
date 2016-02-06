@@ -8,5 +8,4 @@ class ConnectionTest extends BaseTestCase
     {
         $this->assertEquals(true, $this->sa->ping());
     }
-
 }
